@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -5,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using PetForum.Application.Handlers.CommandHandlers.Topics;
+using System.Reflection;
 
 namespace PetForum
 {
@@ -26,6 +29,8 @@ namespace PetForum
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddMediatR(typeof(CreateTopicHandler).GetTypeInfo().Assembly);
 
             services.AddSwaggerGen(c =>
             {
