@@ -25,14 +25,14 @@ namespace PetForum.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IEnumerable<TopicResponse>> Get()
         {
-            return await _mediator.Send(new GetTopicsQuery());
+            return await _mediator.Send(new GetSubForumsQuery());
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<TopicResponse>> CreateTopic([FromBody] CreateTopicCommand command)
         {
-            var result = _mediator.Send(command);
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
     }

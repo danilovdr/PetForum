@@ -1,13 +1,11 @@
-﻿using MediatR;
-using PetForum.Application.Responses.Topics;
-using PetForum.Core.Entities;
+﻿using PetForum.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PetForum.Application.Commands.Topics
+namespace PetForum.Application.Responses.SubForums
 {
-    public class CreateTopicCommand : IRequest<TopicResponse>
+    public class SubForumResponse
     {
         public string Name { get; set; }
         public string Description { get; set; }
